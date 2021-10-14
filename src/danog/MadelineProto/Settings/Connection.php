@@ -136,15 +136,15 @@ class Connection extends SettingsAbstract
             }
         }
 
-        $settings = $settings['all'] ?? [];
+        $setting = $settings['all'] ?? [];
         foreach (self::toCamel([
             'test_mode',
             'ipv6',
             'timeout',
             'obfuscated',
         ]) as $object => $array) {
-            if (isset($settings[$array])) {
-                $this->{$object}($settings[$array]);
+            if (isset($setting[$array])) {
+                $this->{$object}($setting[$array]);
             }
         }
 
