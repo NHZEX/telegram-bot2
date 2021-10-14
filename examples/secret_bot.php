@@ -20,6 +20,7 @@
  */
 
 use danog\MadelineProto\APIWrapper;
+use danog\MadelineProto\Settings\Connection;
 
 /*
  * Various ways to load MadelineProto
@@ -127,14 +128,62 @@ class SecretHandler extends \danog\MadelineProto\EventHandler
 
 if (\file_exists('.env')) {
     echo 'Loading .env...'.PHP_EOL;
-    $dotenv = Dotenv\Dotenv::create(\getcwd());
+    $dotenv = \Dotenv\Dotenv::createImmutable(\getcwd());
     $dotenv->load();
 }
-
 echo 'Loading settings...'.PHP_EOL;
-$settings = \json_decode(\getenv('MTPROTO_SETTINGS'), true) ?: [];
+//$settings = \json_decode(\getenv('MTPROTO_SETTINGS'), true) ?: [];
+
+$settings = [
+        'app_info' => [
+            'api_id' => $_ENV['APP_ID'] ?? null,
+            'api_hash' => $_ENV['APP_HASH'] ?? null,
+        ],
+        'logger' => [
+            'level' => \danog\MadelineProto\Logger::ULTRA_VERBOSE,
+        ],
+        'connection' => [
+        ],
+        'connection_settings' => [
+            'all' => [],
+            'proxy' => [
+                \danog\MadelineProto\Stream\Proxy\SocksProxy::class,
+                \danog\MadelineProto\Stream\Proxy\HttpProxy::class,
+            ],
+            'proxy_extra' => [
+                [
+                    'address' => '192.168.3.8',
+                    'port' => 10900,
+                ],
+                [
+                    'address' => '192.168.3.8',
+                    'port' => 10901,
+                ],
+            ],
+        ],
+];
 
 $MadelineProto = new \danog\MadelineProto\API('secret.madeline', $settings);
+//$appInfo = $MadelineProto->getSettings()->getAppInfo();
+//$appInfo->setApiId($_ENV['APP_ID'] ?? null);
+//$appInfo->setApiHash($_ENV['APP_HASH'] ?? null);
+
+//$MadelineProto->botLogin('');
+
+//$MadelineProto->getSettings()->getLogger()->setLevel(\danog\MadelineProto\Logger::ULTRA_VERBOSE);
+
+
+//$settings = new Connection();
+//$settings->setIpv6(false);
+//$settings->addProxy(\danog\MadelineProto\Stream\Proxy\SocksProxy::class, [
+//    'address' => '192.168.3.8',
+//    'port' => 10900,
+//]);
+//$settings->addProxy(\danog\MadelineProto\Stream\Proxy\HttpProxy::class, [
+//    'address' => '192.168.3.8',
+//    'port' => 10901,
+//]);
+//$MadelineProto->updateSettings($settings);
 
 // Reduce boilerplate with new wrapper method
 $MadelineProto->startAndLoop(SecretHandler::class);

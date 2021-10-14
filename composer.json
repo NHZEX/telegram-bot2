@@ -56,7 +56,8 @@
         "symfony/polyfill-php80": "^1.18",
         "amphp/websocket-client": "^1.0",
         "psr/http-factory": "^1.0",
-        "psr/log": "^1"
+        "psr/log": "^1",
+        "vlucas/phpdotenv": "^5.3"
     },
     "require-dev": {
         "phpdocumentor/reflection-docblock": "^5.2",
