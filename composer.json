@@ -23,7 +23,6 @@
         "ext-pthreads": "*"
     },
     "require": {
-        "phabel/phabel": "^1.0",
         "php": "*",
         "ext-mbstring": "*",
         "ext-json": "*",
@@ -32,13 +31,37 @@
         "ext-filter": "*",
         "ext-hash": "*",
         "ext-zlib": "*",
-        "ext-fileinfo": "*"
+        "ext-fileinfo": "*",
+        "danog/primemodule": "^1",
+        "erusev/parsedown": "^1.7",
+        "symfony/polyfill-mbstring": "*",
+        "amphp/amp": "^2",
+        "amphp/http-client": "^4",
+        "amphp/socket": "^1",
+        "amphp/dns": "^1",
+        "amphp/byte-stream": "^1",
+        "amphp/file": "^1",
+        "amphp/mysql": "^2",
+        "amphp/postgres": "^1.2",
+        "danog/dns-over-https": "^0.2",
+        "amphp/http-client-cookies": "^1",
+        "danog/tg-file-decoder": "^0.1",
+        "danog/magicalserializer": "^1.0",
+        "league/uri": "^6",
+        "danog/ipc": "^0.1",
+        "amphp/log": "^1.1",
+        "danog/loop": "^0.1.0",
+        "danog/tgseclib": "^3",
+        "amphp/redis": "^1.0",
+        "symfony/polyfill-php80": "^1.18",
+        "amphp/websocket-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "psr/log": "^1"
     },
     "require-dev": {
         "phpdocumentor/reflection-docblock": "^5.2",
         "ext-ctype": "*",
         "danog/phpdoc": "^0.1.7",
-        "phabel/phabel": "^1",
         "bamarni/composer-bin-plugin": "^1.4"
     },
     "suggest": {
@@ -108,31 +131,7 @@
         "phabel": {
             "revision": 0,
             "require": {
-                "danog/primemodule": "^1",
-                "erusev/parsedown": "^1.7",
-                "symfony/polyfill-mbstring": "*",
-                "amphp/amp": "^2",
-                "amphp/http-client": "^4",
-                "amphp/socket": "^1",
-                "amphp/dns": "^1",
-                "amphp/byte-stream": "^1",
-                "amphp/file": "^1",
-                "amphp/mysql": "^2",
-                "amphp/postgres": "^1.2",
-                "danog/dns-over-https": "^0.2",
-                "amphp/http-client-cookies": "^1",
-                "danog/tg-file-decoder": "^0.1",
-                "danog/magicalserializer": "^1.0",
-                "league/uri": "^6",
-                "danog/ipc": "^0.1",
-                "amphp/log": "^1.1",
-                "danog/loop": "^0.1.0",
-                "danog/tgseclib": "^3",
-                "amphp/redis": "^1.0",
-                "symfony/polyfill-php80": "^1.18",
-                "amphp/websocket-client": "^1.0",
-                "psr/http-factory": "^1.0",
-                "psr/log": "^1"
+
             }
         }
     }
